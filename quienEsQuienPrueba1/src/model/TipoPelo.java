@@ -4,7 +4,8 @@ public enum TipoPelo {
 	CORTO,
 	LARGO,
 	RIZADO,
-	CALVO;
+	CALVO,
+	CRESTA;
 	
 
 }

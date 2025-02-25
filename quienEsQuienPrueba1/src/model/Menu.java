@@ -10,7 +10,7 @@ public class Menu {
 	System.out.println("Eligue que quieres hacer \n jugar \n instrucciones \n salir del juego ");
 	eleccion= sc.nextInt();
 	while (eleccion < 1 || eleccion > 3){
-		System.out.println("Respuesta incorrecta introduce un numero del 1 al 3");
+		System.out.println("Respuesta incorrecta introduce un numero del 1 al 4");
 		System.out.println("Eligue que quieres hacer \n jugar \n instrucciones \n salir del juego ");
 		eleccion= sc.nextInt();
 	}
