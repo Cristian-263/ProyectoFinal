@@ -60,7 +60,7 @@ public class Menu {
 		int eleccion=0;
 		
 		while (eleccion < 1 || eleccion > 5){
-			System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
+			
 			System.out.println("Sobre que quieres preguntar: ");
 			System.out.println("1.Genero ");
 			System.out.println("2.Color del pelo ");
