@@ -19,6 +19,46 @@ public class Main {
         listaPersonajes.add(new Personaje("Raúl", TipoPelo.CORTO, ColorPelo.PELIRROJO, Ojos.AZULES, Genero.HOMBRE, true, true, false, true, false));
         listaPersonajes.add(new Personaje("Sofía", TipoPelo.LARGO, ColorPelo.BLANCO, Ojos.NEGROS, Genero.MUJER, false, false, true, false, true));
 		
+        ArrayList<String>listaPreguntas = new ArrayList <String>();
+        listaPreguntas.add("¿Tú personaje tiene el pelo Rubio?");
+        listaPreguntas.add("¿Tú personaje tiene el pelo Moreno?");
+        listaPreguntas.add("¿Tú personaje tiene el pelo Castaño?");
+        listaPreguntas.add("¿Tú personaje tiene el pelo Blanco?");
+        listaPreguntas.add("¿Tú personaje tiene el pelo Pelirrojo?");
+        listaPreguntas.add("¿Tú personaje es hombre?");
+        listaPreguntas.add("¿Tú personaje es mujer?");
+        listaPreguntas.add("¿Tú personaje tiene los ojos marrones?");
+        listaPreguntas.add("¿Tú personaje tiene los ojos negros?");
+        listaPreguntas.add("¿Tú personaje tiene los ojos azules?");
+        listaPreguntas.add("¿Tú personaje tiene los ojos verdes?");
+        listaPreguntas.add("¿Tú personaje tiene el pelo rizado?");
+        listaPreguntas.add("¿Tú personaje tiene el pelo corto?");
+        listaPreguntas.add("¿Tú personaje tiene el pelo largo?");
+        listaPreguntas.add("¿Tú personaje tiene pelo?");
+        listaPreguntas.add("¿Tú personaje tiene una cresta?");
+        listaPreguntas.add("¿El personaje que has elegido es Carlos?");
+        listaPreguntas.add("¿El personaje que has elegido es Ana?");
+        listaPreguntas.add("¿El personaje que has elegido es Pedro?");
+        listaPreguntas.add("¿El personaje que has elegido es Lucia?");
+        listaPreguntas.add("¿El personaje que has elegido es Javier?");
+        listaPreguntas.add("¿El personaje que has elegido es María?");
+        listaPreguntas.add("¿El personaje que has elegido es Andrés?");
+        listaPreguntas.add("¿El personaje que has elegido es Beatríz?");
+        listaPreguntas.add("¿El personaje que has elegido es Raúl?");
+        listaPreguntas.add("¿El personaje que has elegido es Sofía?");
+        
+
+
+
+
+
+
+
+
+
+
+
+        
         
         do {
         int elegido= Menu.menu();
@@ -36,6 +76,7 @@ public class Main {
 			 salirJuego=true;
 		 }
         }while(salirMenu==false && salirJuego==false);
+        
       
       
 	}
