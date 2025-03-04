@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import model.*;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -20,13 +21,13 @@ public class Main {
         listaPersonajes.add(new Personaje("Sofía", TipoPelo.LARGO, ColorPelo.BLANCO, Ojos.NEGROS, Genero.MUJER, false, false, true, false, true));
 		
         ArrayList<String>listaPreguntas = new ArrayList <String>();
+        listaPreguntas.add("¿Tú personaje es hombre?");
+        listaPreguntas.add("¿Tú personaje es mujer?");
         listaPreguntas.add("¿Tú personaje tiene el pelo Rubio?");
         listaPreguntas.add("¿Tú personaje tiene el pelo Moreno?");
         listaPreguntas.add("¿Tú personaje tiene el pelo Castaño?");
         listaPreguntas.add("¿Tú personaje tiene el pelo Blanco?");
         listaPreguntas.add("¿Tú personaje tiene el pelo Pelirrojo?");
-        listaPreguntas.add("¿Tú personaje es hombre?");
-        listaPreguntas.add("¿Tú personaje es mujer?");
         listaPreguntas.add("¿Tú personaje tiene los ojos marrones?");
         listaPreguntas.add("¿Tú personaje tiene los ojos negros?");
         listaPreguntas.add("¿Tú personaje tiene los ojos azules?");
@@ -45,21 +46,7 @@ public class Main {
         listaPreguntas.add("¿El personaje que has elegido es Andrés?");
         listaPreguntas.add("¿El personaje que has elegido es Beatríz?");
         listaPreguntas.add("¿El personaje que has elegido es Raúl?");
-        listaPreguntas.add("¿El personaje que has elegido es Sofía?");
-        
-
-
-
-
-
-
-
-
-
-
-
-        
-        
+        listaPreguntas.add("¿El personaje que has elegido es Sofía?");     
         do {
         int elegido= Menu.menu();
 		 
@@ -72,10 +59,37 @@ public class Main {
 			 Menu.instrucciones();
 			 
 		 }else {
-			  System.out.println("has salido del juego");
 			 salirJuego=true;
 		 }
         }while(salirMenu==false && salirJuego==false);
+        
+        if(salirMenu==true) {
+        	int preguntaElegida= Menu.preguntas();
+        	if(preguntaElegida==1) {
+        		for(int i=0; i<=1; i++) {
+        			System.out.println(listaPreguntas.get(i));
+        		}
+        	}else if(preguntaElegida==2) {
+        		for(int i=2; i<=6; i++) {
+        			System.out.println(listaPreguntas.get(i));
+        		}
+            }else if(preguntaElegida==3) {
+                for(int i=7; i<=10; i++) {
+                System.out.println(listaPreguntas.get(i));	
+                }
+            }else if(preguntaElegida==4) {
+        		for(int i=11; i<=15; i++) {
+        			System.out.println(listaPreguntas.get(i));
+        		}
+            }else if(preguntaElegida==5) {
+        		for(int i=16; i<listaPreguntas.size(); i++) {
+        			System.out.println(listaPreguntas.get(i));
+        		}
+            }
+        }else if(salirJuego==true) {
+        	System.out.println("Has decidido salir del juego ");
+        	System.out.println("Hasta la próxima");
+        }
         
       
       

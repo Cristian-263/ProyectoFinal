@@ -53,7 +53,23 @@ public class Menu {
 		    System.out.println("- Si acierta, gana. Si falla, pierde.");
 		    System.out.println();
 		    System.out.println("==============================================");
-		
 
+	}
+	public static int preguntas() {
+		Scanner sc = new Scanner(System.in);
+		int eleccion=0;
+		
+		while (eleccion < 1 || eleccion > 5){
+			System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
+			System.out.println("Sobre que quieres preguntar: ");
+			System.out.println("1.Genero ");
+			System.out.println("2.Color del pelo ");
+			System.out.println("3.Ojos ");
+			System.out.println("4.Tipo de pelo ");
+			System.out.println("5. Adivinar personaje ");
+			eleccion= sc.nextInt();
+			
+		}
+		return eleccion;
 	}
 }

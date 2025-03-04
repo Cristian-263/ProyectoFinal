@@ -91,7 +91,7 @@ public class Personaje {
 	public void setUsaPendientes(boolean usaPendientes) {
 		this.usaPendientes = usaPendientes;
 	}
-
+	//METODOS DE IMPRESIÓN //
 	public void imprimirPersonaje() {
 		    System.out.println("╔══════════════════════════════╗");
 		    System.out.println("║ 👤 Personaje: " + nombre );
@@ -114,7 +114,7 @@ public class Personaje {
 
 	
     
-	//METODOS DE IMPRESIÓN //
+
 	
 	
     
