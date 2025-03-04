@@ -6,6 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		boolean salirMenu = false;
+		boolean salirJuego = false;
 		ArrayList<Personaje> listaPersonajes = new ArrayList <Personaje>();
 		listaPersonajes.add(new Personaje("Carlos",TipoPelo.CORTO, ColorPelo.CASTANYO,Ojos.MARRONES,Genero.HOMBRE,false,true,false,false,false));
 		listaPersonajes.add(new Personaje("Ana", TipoPelo.LARGO, ColorPelo.RUBIO, Ojos.AZULES, Genero.MUJER, true, false, false, false, true));
@@ -17,21 +18,25 @@ public class Main {
         listaPersonajes.add(new Personaje("Beatriz", TipoPelo.LARGO, ColorPelo.MORENO, Ojos.MARRONES, Genero.MUJER, false, false, false, false, true));
         listaPersonajes.add(new Personaje("Raúl", TipoPelo.CORTO, ColorPelo.PELIRROJO, Ojos.AZULES, Genero.HOMBRE, true, true, false, true, false));
         listaPersonajes.add(new Personaje("Sofía", TipoPelo.LARGO, ColorPelo.BLANCO, Ojos.NEGROS, Genero.MUJER, false, false, true, false, true));
-		 int elegido= Menu.menu();
+		
+        
+        do {
+        int elegido= Menu.menu();
 		 
 		 if (elegido==1) {
 		     for(Personaje personaje: listaPersonajes) {
 					personaje.imprimirPersonaje();
+					salirMenu=true;
 				}
 		 }else if(elegido==2) {
 			 Menu.instrucciones();
 			 
 		 }else {
-		
+			  System.out.println("has salido del juego");
+			 salirJuego=true;
 		 }
-		
-		
-   
+        }while(salirMenu==false && salirJuego==false);
+      
       
 	}
 
