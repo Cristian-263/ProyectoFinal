@@ -57,17 +57,10 @@ public class Main {
 				}
 		 }else if(elegido==2) {
 			 Menu.instrucciones();
-
 			 
 		 }else {
-<<<<<<< Updated upstream
-=======
-
-			  System.out.println("has salido del juego");
->>>>>>> Stashed changes
 			 salirJuego=true;
-			
-		 } 
+		 }
         }while(salirMenu==false && salirJuego==false);
         
         if(salirMenu==true) {

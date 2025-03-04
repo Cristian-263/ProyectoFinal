@@ -55,7 +55,7 @@ public class Menu {
 		    System.out.println("==============================================");
 
 	}
-<<<<<<< Updated upstream
+
 	public static int preguntas() {
 		Scanner sc = new Scanner(System.in);
 		int eleccion=0;
@@ -74,6 +74,5 @@ public class Menu {
 		return eleccion;
 	}
 }
-=======
-}
->>>>>>> Stashed changes
+
+
