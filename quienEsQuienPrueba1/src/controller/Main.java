@@ -5,6 +5,7 @@ import model.*;
 public class Main {
 
 	public static void main(String[] args) {
+		boolean salirMenu = false;
 		ArrayList<Personaje> listaPersonajes = new ArrayList <Personaje>();
 		listaPersonajes.add(new Personaje("Carlos",TipoPelo.CORTO, ColorPelo.CASTANYO,Ojos.MARRONES,Genero.HOMBRE,false,true,false,false,false));
 		listaPersonajes.add(new Personaje("Ana", TipoPelo.LARGO, ColorPelo.RUBIO, Ojos.AZULES, Genero.MUJER, true, false, false, false, true));
@@ -24,11 +25,12 @@ public class Main {
 				}
 		 }else if(elegido==2) {
 			 Menu.instrucciones();
+			 
 		 }else {
 		
 		 }
 		
-	
+		
    
       
 	}
