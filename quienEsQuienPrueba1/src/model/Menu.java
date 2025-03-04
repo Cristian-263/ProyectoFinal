@@ -10,7 +10,7 @@ public class Menu {
 	System.out.println("Eligue que quieres hacer \n jugar \n instrucciones \n salir del juego ");
 	eleccion= sc.nextInt();
 	while (eleccion < 1 || eleccion > 3){
-		System.out.println("Respuesta incorrecta introduce un numero del 1 al 4");
+		System.out.println("Respuesta incorrecta introduce un numero del 1 al 3");
 		System.out.println("Eligue que quieres hacer \n jugar \n instrucciones \n salir del juego ");
 		eleccion= sc.nextInt();
 	}
@@ -56,11 +56,17 @@ public class Menu {
 
 	}
 	public static int preguntas() {
-		Scanner sc = new Scanner(System.in);
 		int eleccion=0;
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Sobre que quieres preguntar: ");
+		System.out.println("1.Genero ");
+		System.out.println("2.Color del pelo ");
+		System.out.println("3.Ojos ");
+		System.out.println("4.Tipo de pelo ");
+		System.out.println("5. Adivinar personaje ");
+		eleccion= sc.nextInt();
 		while (eleccion < 1 || eleccion > 5){
-			
+			System.out.println("Respuesta incorrecta introduce un numero del 1 al 4");
 			System.out.println("Sobre que quieres preguntar: ");
 			System.out.println("1.Genero ");
 			System.out.println("2.Color del pelo ");
