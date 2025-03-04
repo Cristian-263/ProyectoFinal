@@ -1,11 +1,14 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import model.*;
 
 public class Main {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		boolean salirMenu = false;
 		boolean salirJuego = false;
 		ArrayList<Personaje> listaPersonajes = new ArrayList <Personaje>();
@@ -69,21 +72,64 @@ public class Main {
         		for(int i=0; i<=1; i++) {
         			System.out.println(listaPreguntas.get(i));
         		}
+        		int preguntaElegida2=sc.nextInt();
+        		while(preguntaElegida2 <1 || preguntaElegida2 >2) {
+        			
+        			System.out.println("Respuesta incorrecta introduce un numero del 1 al 2");
+        			for(int i=0; i<=1; i++) {
+            			System.out.println(listaPreguntas.get(i));
+            		}
+        			preguntaElegida2=sc.nextInt();
+        		}
+        		
         	}else if(preguntaElegida==2) {
         		for(int i=2; i<=6; i++) {
         			System.out.println(listaPreguntas.get(i));
         		}
+        		int preguntaElegida2=sc.nextInt();
+        		while(preguntaElegida2 <1 || preguntaElegida2 >5) {
+        			
+        			System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
+        			for(int i=2; i<=6; i++) {
+            			System.out.println(listaPreguntas.get(i));
+            		}
+        			preguntaElegida2=sc.nextInt();
+        		}
             }else if(preguntaElegida==3) {
                 for(int i=7; i<=10; i++) {
                 System.out.println(listaPreguntas.get(i));	
-                }
+                }int preguntaElegida2=sc.nextInt();
+        		while(preguntaElegida2 <1 || preguntaElegida2 >4) {
+        			
+        			System.out.println("Respuesta incorrecta introduce un numero del 1 al 4");
+        			for(int i=7; i<=10; i++) {
+            			System.out.println(listaPreguntas.get(i));
+            		}
+        			preguntaElegida2=sc.nextInt();
+        		}
             }else if(preguntaElegida==4) {
         		for(int i=11; i<=15; i++) {
         			System.out.println(listaPreguntas.get(i));
+        		}int preguntaElegida2=sc.nextInt();
+        		while(preguntaElegida2 <1 || preguntaElegida2 >5) {
+        			
+        			System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
+        			for(int i=11; i<=15; i++) {
+            			System.out.println(listaPreguntas.get(i));
+            		}
+        			preguntaElegida2=sc.nextInt();
         		}
             }else if(preguntaElegida==5) {
         		for(int i=16; i<listaPreguntas.size(); i++) {
         			System.out.println(listaPreguntas.get(i));
+        		}int preguntaElegida2=sc.nextInt();
+        		while(preguntaElegida2 <1 || preguntaElegida2 >10) {
+        			
+        			System.out.println("Respuesta incorrecta introduce un numero del 1 al 10");
+        			for(int i=16; i<listaPreguntas.size(); i++) {
+            			System.out.println(listaPreguntas.get(i));
+            		}
+        			preguntaElegida2=sc.nextInt();
         		}
             }
         }else if(salirJuego==true) {
