@@ -78,18 +78,10 @@ public class Main {
 					personaje.imprimirPersonaje();
 					salirMenu = true;
 				}
-<<<<<<< HEAD
 		 }else if(elegido==2) {
-			 Menu.instrucciones();
-			 
+			 Menu.instrucciones();		 
 		 }else {
-<<<<<<< Updated upstream
-=======
-
-
 			  System.out.println("has salido del juego");
-
->>>>>>> Stashed changes
 			 salirJuego=true;
 		 }
         }while(salirMenu==false && salirJuego==false);
@@ -165,96 +157,7 @@ public class Main {
         }else if(salirJuego==true) {
         	System.out.println("Has decidido salir del juego ");
         	System.out.println("Hasta la próxima");
-        }
-        
-      
-      
-=======
-			} else if (elegido == 2) {
-				Menu.instrucciones();
-
-			} else {
-				salirJuego = true;
-			}
-		} while (salirMenu == false && salirJuego == false);
-		int preguntaElegida2 = 0;
-		// MENÚ SELECCIÓN DE PREGUNTAS //
-		if (salirMenu == true) {
-			int preguntaElegida = Menu.preguntas();
-			if (preguntaElegida == 1) {
-				for (int i = 0; i <= 1; i++) {
-					System.out.println(listaPreguntas.get(i));
-				}
-				preguntaElegida2 = sc.nextInt();
-				while (preguntaElegida2 < 1 || preguntaElegida2 > 2) {
-
-					System.out.println("Respuesta incorrecta introduce un numero del 1 al 2");
-					for (int i = 0; i <= 1; i++) {
-						System.out.println(listaPreguntas.get(i));
-					}
-					preguntaElegida2 = sc.nextInt();
-				}
-
-			} else if (preguntaElegida == 2) {
-				for (int i = 2; i <= 6; i++) {
-					System.out.println(listaPreguntas.get(i));
-				}
-				preguntaElegida2 = sc.nextInt();
-				while (preguntaElegida2 < 1 || preguntaElegida2 > 5) {
-
-					System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
-					for (int i = 2; i <= 6; i++) {
-						System.out.println(listaPreguntas.get(i));
-					}
-					preguntaElegida2 = sc.nextInt();
-				}
-			} else if (preguntaElegida == 3) {
-				for (int i = 7; i <= 10; i++) {
-					System.out.println(listaPreguntas.get(i));
-				}
-				preguntaElegida2 = sc.nextInt();
-				while (preguntaElegida2 < 1 || preguntaElegida2 > 4) {
-
-					System.out.println("Respuesta incorrecta introduce un numero del 1 al 4");
-					for (int i = 7; i <= 10; i++) {
-						System.out.println(listaPreguntas.get(i));
-					}
-					preguntaElegida2 = sc.nextInt();
-				}
-			} else if (preguntaElegida == 4) {
-				for (int i = 11; i <= 15; i++) {
-					System.out.println(listaPreguntas.get(i));
-				}
-				preguntaElegida2 = sc.nextInt();
-				while (preguntaElegida2 < 1 || preguntaElegida2 > 5) {
-
-					System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
-					for (int i = 11; i <= 15; i++) {
-						System.out.println(listaPreguntas.get(i));
-					}
-					preguntaElegida2 = sc.nextInt();
-				}
-			} else if (preguntaElegida == 5) {
-				for (int i = 16; i < listaPreguntas.size(); i++) {
-					System.out.println(listaPreguntas.get(i));
-				}
-				preguntaElegida2 = sc.nextInt();
-				while (preguntaElegida2 < 1 || preguntaElegida2 > 10) {
-
-					System.out.println("Respuesta incorrecta introduce un numero del 1 al 10");
-					for (int i = 16; i < listaPreguntas.size(); i++) {
-						System.out.println(listaPreguntas.get(i));
-					}
-					preguntaElegida2 = sc.nextInt();
-				}
-			}
-			// OPCIÓN SI ELIGUE SALIR DEL JUEGO //
-		} else if (salirJuego == true) {
-			System.out.println("Has decidido salir del juego ");
-			System.out.println("Hasta la próxima");
-		}
-
->>>>>>> origin/main
+        } 
 	}
 
 }
