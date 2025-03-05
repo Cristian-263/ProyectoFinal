@@ -65,14 +65,14 @@ public class Main {
 			 salirJuego=true;
 		 }
         }while(salirMenu==false && salirJuego==false);
-        
+        int preguntaElegida2=0;
         if(salirMenu==true) {
         	int preguntaElegida= Menu.preguntas();
         	if(preguntaElegida==1) {
         		for(int i=0; i<=1; i++) {
         			System.out.println(listaPreguntas.get(i));
         		}
-        		int preguntaElegida2=sc.nextInt();
+        		preguntaElegida2=sc.nextInt();
         		while(preguntaElegida2 <1 || preguntaElegida2 >2) {
         			
         			System.out.println("Respuesta incorrecta introduce un numero del 1 al 2");
@@ -86,7 +86,7 @@ public class Main {
         		for(int i=2; i<=6; i++) {
         			System.out.println(listaPreguntas.get(i));
         		}
-        		int preguntaElegida2=sc.nextInt();
+        		preguntaElegida2=sc.nextInt();
         		while(preguntaElegida2 <1 || preguntaElegida2 >5) {
         			
         			System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
@@ -98,7 +98,7 @@ public class Main {
             }else if(preguntaElegida==3) {
                 for(int i=7; i<=10; i++) {
                 System.out.println(listaPreguntas.get(i));	
-                }int preguntaElegida2=sc.nextInt();
+                } preguntaElegida2=sc.nextInt();
         		while(preguntaElegida2 <1 || preguntaElegida2 >4) {
         			
         			System.out.println("Respuesta incorrecta introduce un numero del 1 al 4");
@@ -110,7 +110,7 @@ public class Main {
             }else if(preguntaElegida==4) {
         		for(int i=11; i<=15; i++) {
         			System.out.println(listaPreguntas.get(i));
-        		}int preguntaElegida2=sc.nextInt();
+        		} preguntaElegida2=sc.nextInt();
         		while(preguntaElegida2 <1 || preguntaElegida2 >5) {
         			
         			System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
@@ -122,7 +122,7 @@ public class Main {
             }else if(preguntaElegida==5) {
         		for(int i=16; i<listaPreguntas.size(); i++) {
         			System.out.println(listaPreguntas.get(i));
-        		}int preguntaElegida2=sc.nextInt();
+        		} preguntaElegida2=sc.nextInt();
         		while(preguntaElegida2 <1 || preguntaElegida2 >10) {
         			
         			System.out.println("Respuesta incorrecta introduce un numero del 1 al 10");
