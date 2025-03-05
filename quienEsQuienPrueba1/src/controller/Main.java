@@ -9,8 +9,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		//VARIABLES//
 		boolean salirMenu = false;
 		boolean salirJuego = false;
+		// ARRAYLIST PERSONAJES //
 		ArrayList<Personaje> listaPersonajes = new ArrayList <Personaje>();
 		listaPersonajes.add(new Personaje("Carlos",TipoPelo.CORTO, ColorPelo.CASTANYO,Ojos.MARRONES,Genero.HOMBRE,false,true,false,false,false));
 		listaPersonajes.add(new Personaje("Ana", TipoPelo.LARGO, ColorPelo.RUBIO, Ojos.AZULES, Genero.MUJER, true, false, false, false, true));
@@ -23,6 +25,8 @@ public class Main {
         listaPersonajes.add(new Personaje("Raúl", TipoPelo.CORTO, ColorPelo.PELIRROJO, Ojos.AZULES, Genero.HOMBRE, true, true, false, true, false));
         listaPersonajes.add(new Personaje("Sofía", TipoPelo.LARGO, ColorPelo.BLANCO, Ojos.NEGROS, Genero.MUJER, false, false, true, false, true));
 		
+        // ARRAYLIST PREGUNTAS //
+
         ArrayList<String>listaPreguntas = new ArrayList <String>();
         listaPreguntas.add("1. ¿Tú personaje es hombre?");
         listaPreguntas.add("2. ¿Tú personaje es mujer?");
@@ -51,6 +55,7 @@ public class Main {
         listaPreguntas.add("9. ¿El personaje que has elegido es Raúl?");
         listaPreguntas.add("10. ¿El personaje que has elegido es Sofía?");     
         do {
+        //MENÚ INICIAL//	
         int elegido= Menu.menu();
 		 
 		 if (elegido==1) {
@@ -73,6 +78,7 @@ public class Main {
 		 }
         }while(salirMenu==false && salirJuego==false);
         int preguntaElegida2=0;
+        // MENÚ SELECCIÓN DE PREGUNTAS //
         if(salirMenu==true) {
         	int preguntaElegida= Menu.preguntas();
         	if(preguntaElegida==1) {
@@ -139,6 +145,7 @@ public class Main {
         			preguntaElegida2=sc.nextInt();
         		}
             }
+        	// OPCIÓN SI ELIGUE SALIR DEL JUEGO // 
         }else if(salirJuego==true) {
         	System.out.println("Has decidido salir del juego ");
         	System.out.println("Hasta la próxima");
