@@ -55,6 +55,7 @@ public class Menu {
 		    System.out.println("==============================================");
 
 	}
+
 	public static int preguntas() {
 		int eleccion=0;
 		Scanner sc = new Scanner(System.in);
@@ -79,3 +80,5 @@ public class Menu {
 		return eleccion;
 	}
 }
+
+
