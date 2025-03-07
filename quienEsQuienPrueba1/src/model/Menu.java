@@ -3,7 +3,10 @@ package model;
 import java.util.Scanner;
 
 public class Menu {
-	public static int menu(){
+	
+		
+	
+	public static int menuGeneral(){
 		int eleccion=0;
 		
 	Scanner sc = new Scanner(System.in);
@@ -56,7 +59,7 @@ public class Menu {
 
 	}
 
-	public static int preguntas() {
+	public static int preguntasRasgos() {
 		int eleccion=0;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Sobre que quieres preguntar: ");
@@ -79,6 +82,7 @@ public class Menu {
 		}
 		return eleccion;
 	}
+	
 }
 
 

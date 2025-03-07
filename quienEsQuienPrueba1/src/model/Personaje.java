@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Personaje {
 	// VARIABLES //
 	private String nombre;
@@ -12,7 +15,8 @@ public class Personaje {
     private boolean tieneSombrero;
     private boolean tieneBigote;
 	private boolean usaPendientes;
-    
+     
+	
     // CONTROLADOR //
     public Personaje() {
     	
@@ -90,6 +94,13 @@ public class Personaje {
 	}
 	public void setUsaPendientes(boolean usaPendientes) {
 		this.usaPendientes = usaPendientes;
+	}
+	//METODO ELECCIÓN PERSONAJE //
+	public static Personaje obtenerPersonajeAleatorio(ArrayList<Personaje> listaPersonaje) {
+		Random random = new Random();
+        int indice = random.nextInt(listaPersonaje.size());
+        return listaPersonaje.get(indice);
+        
 	}
 	//METODOS DE IMPRESIÓN //
 	public void imprimirPersonaje() {
