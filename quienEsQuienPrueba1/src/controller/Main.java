@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 import model.*;
@@ -52,10 +51,11 @@ public class Main {
 					personaje.imprimirPersonaje();
 					salirMenu = true;
 				}
+
 		 }else if(elegido==2) {
 			 Menu.instrucciones();		 
 		 }else {
-			  System.out.println("has salido del juego");
+
 			 salirJuego=true;
 		 }
         }while(salirMenu==false && salirJuego==false);
