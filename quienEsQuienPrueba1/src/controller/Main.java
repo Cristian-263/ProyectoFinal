@@ -38,10 +38,6 @@ public class Main {
 
 		Personaje aleatorio = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
 	    // aleatorio.imprimirPersonaje(); //
-		
-
-
-
  
 		// BUCLE PRINCIPAL DEL MENÚ //
 		do {
@@ -74,30 +70,35 @@ public class Main {
         		for (String pregunta : genero) {
 					System.out.println(pregunta);
 				}
+        		int eleccionRasgo= sc.nextInt();
         		break;
         	case 2:	
         		ArrayList<String> colorPelo = listaPreguntas.getPreguntasPorCategoria("ColorPelo");
         		for (String pregunta : colorPelo) {
 					System.out.println(pregunta);
 				}
+        		eleccionRasgo= sc.nextInt();
         		break;
         	case 3:	
         		ArrayList<String> ojos = listaPreguntas.getPreguntasPorCategoria("Ojos");
         		for (String pregunta : ojos) {
 					System.out.println(pregunta);
 				}
+        		eleccionRasgo= sc.nextInt();
         		break;
         	case 4:	
         		ArrayList<String> tipoPelo = listaPreguntas.getPreguntasPorCategoria("TipoPelo");
         		for (String pregunta : tipoPelo) {
 					System.out.println(pregunta);
 				}
+        		eleccionRasgo= sc.nextInt();
         		break;
         	case 5:	
         		ArrayList<String> nombres = listaPreguntas.getPreguntasPorCategoria("Nombres");
         		for (String pregunta : nombres) {
 					System.out.println(pregunta);
 				}
+        		eleccionRasgo= sc.nextInt();
         		break;
         	default:
         		System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
