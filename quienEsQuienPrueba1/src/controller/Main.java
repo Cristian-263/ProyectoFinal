@@ -52,10 +52,25 @@ public class Main {
 					personaje.imprimirPersonaje();
 					salirMenu = true;
 				}
+<<<<<<< Updated upstream
 		 }else if(elegido==2) {
 			 Menu.instrucciones();		 
 		 }else {
 			  System.out.println("has salido del juego");
+=======
+<<<<<<< HEAD
+		 }else if(elegido==2) {
+			 Menu.instrucciones();
+			 
+		 }else {
+<<<<<<< Updated upstream
+=======
+
+
+			  System.out.println("has salido del juego");
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 			 salirJuego=true;
 		 }
         }while(salirMenu==false && salirJuego==false);
