@@ -102,6 +102,13 @@ public class Personaje {
         return listaPersonaje.get(indice);
         
 	}
+	//METODO PARA COMPARAR CON EL PERSONAJE ELEGIDO //
+	public boolean tieneElRasgo(int eleccionRasgo) {
+		
+		return tieneBarba;
+			
+	}
+	
 	//METODOS DE IMPRESIÓN //
 	public void imprimirPersonaje() {
 		    System.out.println("╔══════════════════════════════╗");
