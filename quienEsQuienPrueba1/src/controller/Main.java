@@ -36,7 +36,11 @@ public class Main {
 		listaPersonajes.add(new Personaje("Sofía", TipoPelo.LARGO, ColorPelo.BLANCO, Ojos.NEGROS, Genero.MUJER, false,
 				false, true, false, true));
 
+		Personaje aleatorio = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
+	    // aleatorio.imprimirPersonaje(); //
+		
 		// ARRAYLIST PREGUNTAS //
+		
 
 		ArrayList<String> listaPreguntas = new ArrayList<String>();
 		listaPreguntas.add("1. ¿Tú personaje es hombre?");
@@ -68,7 +72,7 @@ public class Main {
 		// BUCLE PRINCIPAL DEL MENÚ //
 		do {
 			// MENÚ INICIAL//
-			int elegido = Menu.menu();
+			int elegido = Menu.menuGeneral();
 
 			if (elegido == 1) {// JUGAR PARTIDA //
 				for (Personaje personaje : listaPersonajes) {
@@ -88,7 +92,7 @@ public class Main {
         int preguntaElegida2=0;
         // MENÚ SELECCIÓN DE PREGUNTAS //
         if(salirMenu==true) {
-        	int preguntaElegida= Menu.preguntas();
+        	int preguntaElegida= Menu.preguntasRasgos();
         	if(preguntaElegida==1) {
         		for(int i=0; i<=1; i++) {
         			System.out.println(listaPreguntas.get(i));
@@ -101,6 +105,7 @@ public class Main {
             			System.out.println(listaPreguntas.get(i));
             		}
         			preguntaElegida2=sc.nextInt();
+        			
         		}
         		
         	}else if(preguntaElegida==2) {
