@@ -16,6 +16,7 @@ public class Preguntas {
         ArrayList<String> colorPelo = new ArrayList<>();
         ArrayList<String> ojos = new ArrayList<>();
         ArrayList<String> tipoPelo = new ArrayList<>();
+        ArrayList<String> accesorios = new ArrayList<>();
         ArrayList<String> nombres = new ArrayList<>();
 
         // Llenar los ArrayList con preguntas
@@ -38,6 +39,12 @@ public class Preguntas {
         tipoPelo.add("3. ¿Tu personaje tiene el pelo largo?");
         tipoPelo.add("4. ¿Tu personaje tiene pelo?");
         tipoPelo.add("5. ¿Tu personaje tiene una cresta?");
+        
+        accesorios.add("1. ¿Tu personaje tiene gafas?");
+        accesorios.add("2. ¿Tu personaje tiene barba?");
+        accesorios.add("3. ¿Tu personaje tiene sombrero?");
+        accesorios.add("4. ¿Tu personaje tiene bigotes?");
+        accesorios.add("5. ¿Tu personaje tiene pendientes?");
 
         nombres.add("1. ¿El personaje que has elegido es Carlos?");
         nombres.add("2. ¿El personaje que has elegido es Ana?");
@@ -55,6 +62,7 @@ public class Preguntas {
         listaPreguntas.put("ColorPelo", colorPelo);
         listaPreguntas.put("Ojos", ojos);
         listaPreguntas.put("TipoPelo", tipoPelo);
+        listaPreguntas.put("Accesorios", accesorios);
         listaPreguntas.put("Nombres", nombres);
         
     }

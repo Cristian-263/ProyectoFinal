@@ -50,7 +50,7 @@ public class Juego {
             int preguntaElegida = Menu.preguntasRasgos();
             Preguntas listaPreguntas = new Preguntas();
 
-            if (preguntaElegida == 5) { // Adivinar personaje
+            if (preguntaElegida == 6) { // Adivinar personaje
                 ArrayList<String> nombres = listaPreguntas.getPreguntasPorCategoria("Nombres");
                 for (String pregunta : nombres) {
                     System.out.println(pregunta);
@@ -71,6 +71,9 @@ public class Juego {
                 else if (preguntaElegida == 2) categoria = "ColorPelo";
                 else if (preguntaElegida == 3) categoria = "Ojos";
                 else if (preguntaElegida == 4) categoria = "TipoPelo";
+                else if (preguntaElegida == 5) categoria = "Accesorios";
+
+                
 
                 ArrayList<String> preguntas = listaPreguntas.getPreguntasPorCategoria(categoria);
                 for (String pregunta : preguntas) {
@@ -95,6 +98,7 @@ public class Juego {
 
         for (Personaje personaje : lista) {
             boolean coincidePersonajeSecreto = false;
+            // Pregunta de Genero
             if (categoria.equals("Genero")) {
                 coincidePersonajeSecreto = (eleccion == 1 && personajeSecreto.getGenero() == Genero.HOMBRE) ||
                                      (eleccion == 2 && personajeSecreto.getGenero() == Genero.MUJER);
@@ -102,23 +106,55 @@ public class Juego {
                 else if (eleccion == 2 && personaje.getGenero() != Genero.MUJER && coincidePersonajeSecreto) personajesRestantes.add(personaje);
                 else if (eleccion == 1 && personaje.getGenero() == Genero.HOMBRE && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
                 else if (eleccion == 2 && personaje.getGenero() == Genero.MUJER && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                // Pregunta de Color de Pelo
             } else if (categoria.equals("ColorPelo")) {
                 ColorPelo[] colores = {ColorPelo.RUBIO, ColorPelo.MORENO, ColorPelo.CASTANYO, ColorPelo.BLANCO, ColorPelo.PELIRROJO};
                 coincidePersonajeSecreto = personajeSecreto.getColorPelo() == colores[eleccion - 1];
                 if (personaje.getColorPelo() != colores[eleccion - 1] && coincidePersonajeSecreto) personajesRestantes.add(personaje);
                 else if (personaje.getColorPelo() == colores[eleccion - 1] && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                // Pregunta de Ojos
             } else if (categoria.equals("Ojos")) {
                 Ojos[] ojos = {Ojos.MARRONES, Ojos.NEGROS, Ojos.AZULES, Ojos.VERDES};
                 coincidePersonajeSecreto = personajeSecreto.getOjos() == ojos[eleccion - 1];
                 if (personaje.getOjos() != ojos[eleccion - 1] && coincidePersonajeSecreto) personajesRestantes.add(personaje);
                 else if (personaje.getOjos() == ojos[eleccion - 1] && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                // Pregunta de Tipo de Pelo
             } else if (categoria.equals("TipoPelo")) {
                 TipoPelo[] tipos = {TipoPelo.RIZADO, TipoPelo.CORTO, TipoPelo.LARGO, TipoPelo.CALVO, TipoPelo.CRESTA};
                 coincidePersonajeSecreto = personajeSecreto.getPelo() == tipos[eleccion - 1];
                 if (personaje.getPelo() != tipos[eleccion - 1] && coincidePersonajeSecreto) personajesRestantes.add(personaje);
                 else if (personaje.getPelo() == tipos[eleccion - 1] && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                // Pregunta de Accesorios
+            }else if (categoria.equals("Accesorios")) {
+            	 //  Tiene o no tiene Gafas
+                if (eleccion == 1) {
+                    coincidePersonajeSecreto = personajeSecreto.isTieneGafas();
+                    if (!personaje.isTieneGafas() && coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                    else if (personaje.isTieneGafas() && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                 //  Tiene o no tiene Barba
+                } else if (eleccion == 2) { 
+                    coincidePersonajeSecreto = personajeSecreto.isTieneBarba();
+                    if (!personaje.isTieneBarba() && coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                    else if (personaje.isTieneBarba() && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                    //  Tiene o no tiene Sombrero
+                } else if (eleccion == 3) {
+                    coincidePersonajeSecreto = personajeSecreto.isTieneSombrero();
+                    if (!personaje.isTieneSombrero() && coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                    else if (personaje.isTieneSombrero() && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                 //  Tiene o no tiene Bigote
+                } else if (eleccion == 4) { 
+                    coincidePersonajeSecreto = personajeSecreto.isTieneBigote();
+                    if (!personaje.isTieneBigote() && coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                    else if (personaje.isTieneBigote() && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                 //  Tiene o no tiene Pendientes
+                } else if (eleccion == 5) { 
+                    coincidePersonajeSecreto = personajeSecreto.isUsaPendientes();
+                    if (!personaje.isUsaPendientes() && coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                    else if (personaje.isUsaPendientes() && !coincidePersonajeSecreto) personajesRestantes.add(personaje);
+                }
             }
-        }
+            }
+        
 
         lista.removeAll(personajesRestantes);
     }
