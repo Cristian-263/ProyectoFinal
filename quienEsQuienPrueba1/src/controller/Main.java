@@ -41,7 +41,7 @@ public class Main {
 		
 		Juego juego = new Juego();
         juego.menuGeneral(listaPersonajes);
-        juego.jugar();
+        juego.jugar(listaPersonajes);
  
 		
        
