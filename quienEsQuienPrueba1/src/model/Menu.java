@@ -26,13 +26,12 @@ public class Menu {
 		    System.out.println();
 		    
 		    System.out.println("🎯 OBJETIVO:");
-		    System.out.println("Cada jugador debe adivinar el personaje secreto del oponente");
+		    System.out.println("¡Adivina quién es el personaje secreto antes de que se acaben tus opciones!");
 		    System.out.println("haciendo preguntas sobre sus características físicas.");
 		    System.out.println();
 		    
 		    System.out.println("🛠 MATERIALES NECESARIOS:");
 		    System.out.println("- Tablero con personajes.");
-		    System.out.println("- Fichas abatibles.");
 		    System.out.println("- Lista de características.");
 		    System.out.println();
 		    
