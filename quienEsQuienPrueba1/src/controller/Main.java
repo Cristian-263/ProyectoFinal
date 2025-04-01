@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 import model.*;
 
+
 public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		// VARIABLES//
-		boolean salirMenu = false;
-		boolean salirJuego = false;
+
+
 		// ARRAYLIST PERSONAJES //
 		ArrayList<Personaje> listaPersonajes = new ArrayList<Personaje>();
 		listaPersonajes.add(new Personaje("Carlos", TipoPelo.CORTO, ColorPelo.CASTANYO, Ojos.MARRONES, Genero.HOMBRE,
@@ -37,7 +37,12 @@ public class Main {
 
 		Personaje aleatorio = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
 	    // aleatorio.imprimirPersonaje(); //
+		
+		Juego juego = new Juego();
+        juego.menuGeneral(listaPersonajes);
+        juego.jugar();
  
+<<<<<<< HEAD
 		// BUCLE PRINCIPAL DEL MENÚ //
 		do {
 			// MENÚ INICIAL//
@@ -111,7 +116,12 @@ public class Main {
         	System.out.println("Hasta la próxima");
         	
         } 
+=======
+		
+>>>>>>> cristian
        
 	}
+
+
 
 }
