@@ -6,9 +6,7 @@ import java.util.HashMap;
 public class Preguntas {
 	private HashMap<String, ArrayList<String>> listaPreguntas;
 	
-	public void setListaPreguntas(HashMap<String, ArrayList<String>> listaPreguntas) {
-		this.listaPreguntas = listaPreguntas;
-	}
+
 	public Preguntas() {
         // Inicializar el HashMap
         listaPreguntas = new HashMap<>();
@@ -60,9 +58,13 @@ public class Preguntas {
         listaPreguntas.put("Nombres", nombres);
         
     }
+	//Getters and Setters //
 	public HashMap<String, ArrayList<String>> getListaPreguntas() {
         return listaPreguntas;
     }
+	public void setListaPreguntas(HashMap<String, ArrayList<String>> listaPreguntas) {
+		this.listaPreguntas = listaPreguntas;
+	}
 
     // Método para obtener las preguntas de una categoría específica
     public ArrayList<String> getPreguntasPorCategoria(String categoria) {

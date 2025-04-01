@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 import model.*;
@@ -43,10 +42,8 @@ public class Main {
         juego.menuGeneral(listaPersonajes);
         juego.jugar(listaPersonajes);
  
-		
-       
-	}
 
 
 
-}
+
+	}}
