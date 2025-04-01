@@ -1,17 +1,10 @@
 package controller;
-
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import model.*;
-
 
 public class Main {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-
-
 		// ARRAYLIST PERSONAJES //
 		ArrayList<Personaje> listaPersonajes = new ArrayList<Personaje>();
 		listaPersonajes.add(new Personaje("Carlos", TipoPelo.CORTO, ColorPelo.CASTANYO, Ojos.MARRONES, Genero.HOMBRE,
@@ -35,12 +28,9 @@ public class Main {
 		listaPersonajes.add(new Personaje("Sofía", TipoPelo.LARGO, ColorPelo.BLANCO, Ojos.NEGROS, Genero.MUJER, false,
 				false, true, false, true));
 
-		Personaje aleatorio = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
-	    // aleatorio.imprimirPersonaje(); //
-		
 		Juego juego = new Juego();
-        juego.menuGeneral(listaPersonajes);
-        juego.jugar(listaPersonajes);
- 
+		juego.menuGeneral(listaPersonajes);
+		juego.jugar(listaPersonajes);
 
 	}
+}
