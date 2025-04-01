@@ -10,32 +10,39 @@ public class Juego {
     private Personaje personajeSecreto;
 
     public void menuGeneral(ArrayList<Personaje> listaPersonajes) {
-        this.personajeSecreto = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
+        // Bucle principal para permitir jugar varias veces
+        while (!salirJuego) {
+            // Reiniciar estado para nueva partida
+            salirMenu = false;
+            this.personajeSecreto = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
 
-        do {
-            int elegido = Menu.menuGeneral();
-            if (elegido == 1) {
-                System.out.println("Personajes disponibles:");
-                for (Personaje personaje : listaPersonajes) {
-                    personaje.imprimirPersonaje();
+            // Mostrar menú y manejar opciones
+            do {
+                int elegido = Menu.menuGeneral();
+                if (elegido == 1) {
+                    System.out.println("Personajes disponibles:");
+                    for (Personaje personaje : listaPersonajes) {
+                        personaje.imprimirPersonaje();
+                    }
+                    salirMenu = true;
+                    jugar(listaPersonajes);
+                } else if (elegido == 2) {
+                    Menu.instrucciones();
+                } else {
+                    System.out.println("Has salido del juego");
+                    salirJuego = true;
                 }
-                salirMenu = true;
-                jugar(listaPersonajes);
-            } else if (elegido == 2) {
-                Menu.instrucciones();
-            } else {
-                System.out.println("Has salido del juego");
-                salirJuego = true;
-            }
-        } while (!salirMenu && !salirJuego);
+            } while (!salirMenu && !salirJuego);
+        }
     }
 
     public void jugar(ArrayList<Personaje> listaPersonajes) {
         ArrayList<Personaje> personajesRestantes = new ArrayList<>(listaPersonajes); // Copia de la lista original
+        boolean finPartida = false;
 
         System.out.println("\n¡Comienza el juego! Haz preguntas para adivinar.\n");
 
-        while (!salirJuego) {
+        while (!finPartida && !salirJuego) {
             // Mostrar personajes restantes
             System.out.println("Personajes restantes (" + personajesRestantes.size() + "):");
             for (Personaje p : personajesRestantes) {
@@ -55,10 +62,10 @@ public class Juego {
                 String nombreElegido = obtenerNombre(eleccion);
                 if (nombreElegido.equals(personajeSecreto.getNombre())) {
                     System.out.println("¡Ganaste! El personaje era " + personajeSecreto.getNombre());
-                    salirJuego = true;
+                    finPartida = true;
                 } else {
                     System.out.println("Perdiste. El personaje era " + personajeSecreto.getNombre());
-                    salirJuego = true;
+                    finPartida = true;
                 }
             } else {
                 // Mostrar preguntas según categoría
@@ -80,7 +87,7 @@ public class Juego {
                 // Verificar si queda solo uno
                 if (personajesRestantes.size() == 1) {
                     System.out.println("¡Ganaste! El personaje es " + personajesRestantes.get(0).getNombre());
-                    salirJuego = true;
+                    finPartida = true;
                 }
             }
         }
@@ -89,30 +96,30 @@ public class Juego {
     private void descartarPersonajes(ArrayList<Personaje> lista, String categoria, int eleccion) {
         ArrayList<Personaje> aEliminar = new ArrayList<>();
 
-        for (Personaje p : lista) {
+        for (Personaje personaje : lista) {
             boolean coincideConSecreto = false;
             if (categoria.equals("Genero")) {
                 coincideConSecreto = (eleccion == 1 && personajeSecreto.getGenero() == Genero.HOMBRE) ||
                                      (eleccion == 2 && personajeSecreto.getGenero() == Genero.MUJER);
-                if (eleccion == 1 && p.getGenero() != Genero.HOMBRE && coincideConSecreto) aEliminar.add(p);
-                else if (eleccion == 2 && p.getGenero() != Genero.MUJER && coincideConSecreto) aEliminar.add(p);
-                else if (eleccion == 1 && p.getGenero() == Genero.HOMBRE && !coincideConSecreto) aEliminar.add(p);
-                else if (eleccion == 2 && p.getGenero() == Genero.MUJER && !coincideConSecreto) aEliminar.add(p);
+                if (eleccion == 1 && personaje.getGenero() != Genero.HOMBRE && coincideConSecreto) aEliminar.add(personaje);
+                else if (eleccion == 2 && personaje.getGenero() != Genero.MUJER && coincideConSecreto) aEliminar.add(personaje);
+                else if (eleccion == 1 && personaje.getGenero() == Genero.HOMBRE && !coincideConSecreto) aEliminar.add(personaje);
+                else if (eleccion == 2 && personaje.getGenero() == Genero.MUJER && !coincideConSecreto) aEliminar.add(personaje);
             } else if (categoria.equals("ColorPelo")) {
                 ColorPelo[] colores = {ColorPelo.RUBIO, ColorPelo.MORENO, ColorPelo.CASTANYO, ColorPelo.BLANCO, ColorPelo.PELIRROJO};
                 coincideConSecreto = personajeSecreto.getColorPelo() == colores[eleccion - 1];
-                if (p.getColorPelo() != colores[eleccion - 1] && coincideConSecreto) aEliminar.add(p);
-                else if (p.getColorPelo() == colores[eleccion - 1] && !coincideConSecreto) aEliminar.add(p);
+                if (personaje.getColorPelo() != colores[eleccion - 1] && coincideConSecreto) aEliminar.add(personaje);
+                else if (personaje.getColorPelo() == colores[eleccion - 1] && !coincideConSecreto) aEliminar.add(personaje);
             } else if (categoria.equals("Ojos")) {
                 Ojos[] ojos = {Ojos.MARRONES, Ojos.NEGROS, Ojos.AZULES, Ojos.VERDES};
                 coincideConSecreto = personajeSecreto.getOjos() == ojos[eleccion - 1];
-                if (p.getOjos() != ojos[eleccion - 1] && coincideConSecreto) aEliminar.add(p);
-                else if (p.getOjos() == ojos[eleccion - 1] && !coincideConSecreto) aEliminar.add(p);
+                if (personaje.getOjos() != ojos[eleccion - 1] && coincideConSecreto) aEliminar.add(personaje);
+                else if (personaje.getOjos() == ojos[eleccion - 1] && !coincideConSecreto) aEliminar.add(personaje);
             } else if (categoria.equals("TipoPelo")) {
                 TipoPelo[] tipos = {TipoPelo.RIZADO, TipoPelo.CORTO, TipoPelo.LARGO, TipoPelo.CALVO, TipoPelo.CRESTA};
                 coincideConSecreto = personajeSecreto.getPelo() == tipos[eleccion - 1];
-                if (p.getPelo() != tipos[eleccion - 1] && coincideConSecreto) aEliminar.add(p);
-                else if (p.getPelo() == tipos[eleccion - 1] && !coincideConSecreto) aEliminar.add(p);
+                if (personaje.getPelo() != tipos[eleccion - 1] && coincideConSecreto) aEliminar.add(personaje);
+                else if (personaje.getPelo() == tipos[eleccion - 1] && !coincideConSecreto) aEliminar.add(personaje);
             }
         }
 
