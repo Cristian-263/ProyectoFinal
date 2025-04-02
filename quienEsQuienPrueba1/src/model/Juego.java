@@ -16,11 +16,14 @@ public class Juego {
 			salirMenu = false;
 			this.personajeSecreto = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
 
+
+
 			// Mostrar menú y manejar opciones
 			do {
 				int elegido = Menu.menuGeneral();
 				if (elegido == 1) {
 					System.out.println("\n¡Comienza el juego! Haz preguntas para adivinar.\n");
+
 
 					salirMenu = true;
 					jugar(listaPersonajes);
@@ -38,12 +41,14 @@ public class Juego {
 		ArrayList<Personaje> personajesRestantes = new ArrayList<>(listaPersonajes); // Copia de la lista original
 		boolean finPartida = false;
 
+
 		while (!finPartida && !salirJuego) {
 			// Mostrar personajes restantes
 			System.out.println("Personajes restantes (" + personajesRestantes.size() + "):");
 			for (Personaje personaje : personajesRestantes) {
 				personaje.imprimirPersonaje();
 			}
+
 
 			// Preguntar al jugador
 			int preguntaElegida = Menu.preguntasRasgos();
