@@ -14,16 +14,12 @@ public class Juego {
 		while (!salirJuego) {
 			// Reiniciar estado para nueva partida
 			salirMenu = false;
-			this.personajeSecreto = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
-
-
 
 			// Mostrar menú y manejar opciones
 			do {
 				int elegido = Menu.menuGeneral();
 				if (elegido == 1) {
 					System.out.println("\n¡Comienza el juego! Haz preguntas para adivinar.\n");
-
 
 					salirMenu = true;
 					jugar(listaPersonajes);
@@ -40,7 +36,7 @@ public class Juego {
 	public void jugar(ArrayList<Personaje> listaPersonajes) {
 		ArrayList<Personaje> personajesRestantes = new ArrayList<>(listaPersonajes); // Copia de la lista original
 		boolean finPartida = false;
-
+		this.personajeSecreto = Personaje.obtenerPersonajeAleatorio(listaPersonajes);
 
 		while (!finPartida && !salirJuego) {
 			// Mostrar personajes restantes
@@ -48,7 +44,6 @@ public class Juego {
 			for (Personaje personaje : personajesRestantes) {
 				personaje.imprimirPersonaje();
 			}
-
 
 			// Preguntar al jugador
 			int preguntaElegida = Menu.preguntasRasgos();
@@ -63,9 +58,13 @@ public class Juego {
 				String nombreElegido = obtenerNombre(eleccion);
 				if (nombreElegido.equals(personajeSecreto.getNombre())) {
 					System.out.println("¡Ganaste! El personaje era " + personajeSecreto.getNombre());
+					personajeSecreto.imprimirPersonaje();
+
 					finPartida = true;
 				} else {
 					System.out.println("Perdiste. El personaje era " + personajeSecreto.getNombre());
+					personajeSecreto.imprimirPersonaje();
+
 					finPartida = true;
 				}
 			} else {
@@ -95,6 +94,7 @@ public class Juego {
 				// Verificar si queda solo uno
 				if (personajesRestantes.size() == 1) {
 					System.out.println("¡Ganaste! El personaje es " + personajesRestantes.get(0).getNombre());
+					personajeSecreto.imprimirPersonaje();
 					finPartida = true;
 				}
 			}
@@ -102,89 +102,174 @@ public class Juego {
 	}
 
 	private void descartarPersonajes(ArrayList<Personaje> lista, String categoria, int eleccion) {
-		ArrayList<Personaje> personajesRestantes = new ArrayList<>();
+		boolean coincidePersonajeSecreto = false;
+		int contadorGenero = 0;
+		int contadorColorPelo = 0;
+		int contadorOjos = 0;
+		int contadorTipoPelo = 0;
+		int contadorGafas = 0;
+		int contadorSombrero = 0;
+		int contadorBigote = 0;
+		int contadorBarba = 0;
+		int contadorPendientes = 0;
 
-		for (Personaje personaje : lista) {
-			boolean coincidePersonajeSecreto = false;
-			// Pregunta de Genero
+		for (int i = lista.size() - 1; i >= 0; i--) {
+			Personaje personaje = lista.get(i);
 			if (categoria.equals("Genero")) {
-				coincidePersonajeSecreto = (eleccion == 1 && personajeSecreto.getGenero() == Genero.HOMBRE)
-						|| (eleccion == 2 && personajeSecreto.getGenero() == Genero.MUJER);
-				if (eleccion == 1 && personaje.getGenero() != Genero.HOMBRE && coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				else if (eleccion == 2 && personaje.getGenero() != Genero.MUJER && coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				else if (eleccion == 1 && personaje.getGenero() == Genero.HOMBRE && !coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				else if (eleccion == 2 && personaje.getGenero() == Genero.MUJER && !coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				// Pregunta de Color de Pelo
+				if (eleccion == 1 && personaje.getGenero() != Genero.HOMBRE && coincidePersonajeSecreto) {
+					if (contadorGenero == 0) {
+						System.out.println("El personaje secreto es hombre\n");
+						contadorGenero++;
+					}
+					lista.remove(i);
+				} else if (eleccion == 2 && personaje.getGenero() != Genero.MUJER && coincidePersonajeSecreto) {
+					if (contadorGenero == 0) {
+						System.out.println("El personaje secreto es Mujer\n");
+						contadorGenero++;
+					}
+					lista.remove(i);
+				} else if (eleccion == 1 && personaje.getGenero() == Genero.HOMBRE && !coincidePersonajeSecreto) {
+					if (contadorGenero == 0) {
+						System.out.println("El personaje secreto no es hombre\n");
+						contadorGenero++;
+					}
+
+					lista.remove(i);
+				} else if (eleccion == 2 && personaje.getGenero() == Genero.MUJER && !coincidePersonajeSecreto) {
+					if (contadorGenero == 0) {
+						System.out.println("El personaje secreto no es Mujer\n");
+						contadorGenero++;
+					}
+					lista.remove(i);
+				}
 			} else if (categoria.equals("ColorPelo")) {
 				ColorPelo[] colores = { ColorPelo.RUBIO, ColorPelo.MORENO, ColorPelo.CASTANYO, ColorPelo.BLANCO,
 						ColorPelo.PELIRROJO };
-				coincidePersonajeSecreto = personajeSecreto.getColorPelo() == colores[eleccion - 1];
-				if (personaje.getColorPelo() != colores[eleccion - 1] && coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				else if (personaje.getColorPelo() == colores[eleccion - 1] && !coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				// Pregunta de Ojos
+				if (personaje.getColorPelo() != colores[eleccion - 1] && coincidePersonajeSecreto) {
+					if (contadorColorPelo == 0) {
+						System.out.println("El personaje secreto es " + colores[eleccion - 1] + "\n");
+						contadorColorPelo++;
+					}
+					lista.remove(i);
+				} else if (personaje.getColorPelo() == colores[eleccion - 1] && !coincidePersonajeSecreto) {
+					if (contadorColorPelo == 0) {
+						System.out.println("El personaje secreto no es " + colores[eleccion - 1] + "\n");
+						contadorColorPelo++;
+					}
+					lista.remove(i);
+				}
 			} else if (categoria.equals("Ojos")) {
 				Ojos[] ojos = { Ojos.MARRONES, Ojos.NEGROS, Ojos.AZULES, Ojos.VERDES };
-				coincidePersonajeSecreto = personajeSecreto.getOjos() == ojos[eleccion - 1];
-				if (personaje.getOjos() != ojos[eleccion - 1] && coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				else if (personaje.getOjos() == ojos[eleccion - 1] && !coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				// Pregunta de Tipo de Pelo
+				if (personaje.getOjos() != ojos[eleccion - 1] && coincidePersonajeSecreto) {
+					if (contadorOjos == 0) {
+						System.out.println("Los ojos del personaje secreto son " + ojos[eleccion - 1] + "\n");
+						contadorOjos++;
+					}
+					lista.remove(i);
+				} else if (personaje.getOjos() == ojos[eleccion - 1] && !coincidePersonajeSecreto) {
+					if (contadorOjos == 0) {
+						System.out.println("Los ojos del personaje secreto no son " + ojos[eleccion - 1] + "\n");
+						contadorOjos++;
+					}
+					lista.remove(i);
+				}
 			} else if (categoria.equals("TipoPelo")) {
 				TipoPelo[] tipos = { TipoPelo.RIZADO, TipoPelo.CORTO, TipoPelo.LARGO, TipoPelo.CALVO, TipoPelo.CRESTA };
-				coincidePersonajeSecreto = personajeSecreto.getPelo() == tipos[eleccion - 1];
-				if (personaje.getPelo() != tipos[eleccion - 1] && coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				else if (personaje.getPelo() == tipos[eleccion - 1] && !coincidePersonajeSecreto)
-					personajesRestantes.add(personaje);
-				// Pregunta de Accesorios
+				if (personaje.getPelo() != tipos[eleccion - 1] && coincidePersonajeSecreto) {
+					if (contadorTipoPelo == 0) {
+						System.out.println("El pelo del personaje secreto es " + tipos[eleccion - 1] + "\n");
+						contadorTipoPelo++;
+					}
+					lista.remove(i);
+				} else if (personaje.getPelo() == tipos[eleccion - 1] && !coincidePersonajeSecreto) {
+					if (contadorTipoPelo == 0) {
+						System.out.println("El pelo del personaje secreto no es " + tipos[eleccion - 1] + "\n");
+						contadorTipoPelo++;
+					}
+					lista.remove(i);
+				}
 			} else if (categoria.equals("Accesorios")) {
-				// Tiene o no tiene Gafas
-				if (eleccion == 1) {
-					coincidePersonajeSecreto = personajeSecreto.isTieneGafas();
-					if (!personaje.isTieneGafas() && coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					else if (personaje.isTieneGafas() && !coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					// Tiene o no tiene Barba
-				} else if (eleccion == 2) {
-					coincidePersonajeSecreto = personajeSecreto.isTieneBarba();
-					if (!personaje.isTieneBarba() && coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					else if (personaje.isTieneBarba() && !coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					// Tiene o no tiene Sombrero
-				} else if (eleccion == 3) {
-					coincidePersonajeSecreto = personajeSecreto.isTieneSombrero();
-					if (!personaje.isTieneSombrero() && coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					else if (personaje.isTieneSombrero() && !coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					// Tiene o no tiene Bigote
-				} else if (eleccion == 4) {
-					coincidePersonajeSecreto = personajeSecreto.isTieneBigote();
-					if (!personaje.isTieneBigote() && coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					else if (personaje.isTieneBigote() && !coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					// Tiene o no tiene Pendientes
-				} else if (eleccion == 5) {
-					coincidePersonajeSecreto = personajeSecreto.isUsaPendientes();
-					if (!personaje.isUsaPendientes() && coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
-					else if (personaje.isUsaPendientes() && !coincidePersonajeSecreto)
-						personajesRestantes.add(personaje);
+				switch (eleccion) {
+				case 1:
+					if (!personaje.isTieneGafas() && coincidePersonajeSecreto) {
+						if (contadorGafas == 0) {
+							System.out.println("El personaje secreto tiene gafas \n");
+							contadorGafas++;
+						}
+						lista.remove(i);
+					} else if (personaje.isTieneGafas() && !coincidePersonajeSecreto) {
+						if (contadorGafas == 0) {
+							System.out.println("El personaje secreto no tiene gafas \n");
+							contadorGafas++;
+						}
+						lista.remove(i);
+					}
+
+					break;
+				case 2:
+					if (!personaje.isTieneBarba() && coincidePersonajeSecreto) {
+						if (contadorBarba == 0) {
+							System.out.println("El personaje secreto tiene barba \n");
+							contadorBarba++;
+						}
+						lista.remove(i);
+					} else if (personaje.isTieneBarba() && !coincidePersonajeSecreto) {
+						if (contadorBarba == 0) {
+							System.out.println("El personaje secreto no tiene barba \n");
+							contadorBarba++;
+						}
+						lista.remove(i);
+					}
+					break;
+				case 3:
+					if (!personaje.isTieneSombrero() && coincidePersonajeSecreto) {
+						if (contadorSombrero == 0) {
+							System.out.println("El personaje secreto tiene sombrero \n");
+							contadorSombrero++;
+						}
+						lista.remove(i);
+					} else if (personaje.isTieneSombrero() && !coincidePersonajeSecreto) {
+						if (contadorSombrero == 0) {
+							System.out.println("El personaje secreto no tiene sombrero \n");
+							contadorSombrero++;
+						}
+						lista.remove(i);
+					}
+					break;
+				case 4:
+					if (!personaje.isTieneBigote() && coincidePersonajeSecreto) {
+						if (contadorBigote == 0) {
+							System.out.println("El personaje secreto tiene bigote \n");
+							contadorBigote++;
+						}
+						lista.remove(i);
+					} else if (personaje.isTieneBigote() && !coincidePersonajeSecreto) {
+						if (contadorBigote == 0) {
+							System.out.println("El personaje secreto no tiene bigote \n");
+							contadorBigote++;
+						}
+						lista.remove(i);
+					}
+					break;
+				case 5:
+					if (!personaje.isUsaPendientes() && coincidePersonajeSecreto) {
+						if (contadorPendientes == 0) {
+							System.out.println("El personaje secreto tiene pendientes \n");
+							contadorPendientes++;
+						}
+						lista.remove(i);
+					} else if (personaje.isUsaPendientes() && !coincidePersonajeSecreto) {
+						if (contadorPendientes == 0) {
+							System.out.println("El personaje secreto tiene pendientes \n");
+							contadorPendientes++;
+						}
+						lista.remove(i);
+						break;
+					}
+
 				}
 			}
 		}
-
-		lista.removeAll(personajesRestantes);
 	}
 
 	private String obtenerNombre(int eleccion) {
