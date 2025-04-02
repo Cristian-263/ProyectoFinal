@@ -20,6 +20,7 @@ public class Juego {
             do {
                 int elegido = Menu.menuGeneral();
                 if (elegido == 1) {
+                    System.out.println("\n¡Comienza el juego! Haz preguntas para adivinar.\n");
 
                     salirMenu = true;
                     jugar(listaPersonajes);
@@ -37,7 +38,7 @@ public class Juego {
         ArrayList<Personaje> personajesRestantes = new ArrayList<>(listaPersonajes); // Copia de la lista original
         boolean finPartida = false;
 
-        System.out.println("\n¡Comienza el juego! Haz preguntas para adivinar.\n");
+
 
         while (!finPartida && !salirJuego) {
             // Mostrar personajes restantes
