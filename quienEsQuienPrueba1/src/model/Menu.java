@@ -10,11 +10,25 @@ public class Menu {
 		int eleccion=0;
 		
 	Scanner sc = new Scanner(System.in);
-	System.out.println("Eligue que quieres hacer \n jugar \n instrucciones \n salir del juego ");
+	System.out.println("╔════════════════════════════════════╗");
+    System.out.println("║        🎲 QUIÉN ES QUIÉN 🎲        ║");
+    System.out.println("╠════════════════════════════════════╣");
+    System.out.println("║  1️ Jugar                           ║");
+    System.out.println("║  2️ Instrucciones                   ║");
+    System.out.println("║  3️ Salir del juego                 ║");
+    System.out.println("╚════════════════════════════════════╝");
+    System.out.print("👉 Elige una opción (1-3): ");
 	eleccion= sc.nextInt();
 	while (eleccion < 1 || eleccion > 3){
-		System.out.println("Respuesta incorrecta introduce un numero del 1 al 3");
-		System.out.println("Eligue que quieres hacer \n jugar \n instrucciones \n salir del juego ");
+		System.out.println("⚠️ Respuesta incorrecta, introduce un número del 1 al 3");
+		System.out.println("╔════════════════════════════════════╗");
+	    System.out.println("║        🎲 QUIÉN ES QUIÉN 🎲        ║");
+	    System.out.println("╠════════════════════════════════════╣");
+	    System.out.println("║  1️ Jugar                           ║");
+	    System.out.println("║  2️ Instrucciones                   ║");
+	    System.out.println("║  3️ Salir del juego                 ║");
+	    System.out.println("╚════════════════════════════════════╝");
+	    System.out.print("👉 Elige una opción (1-3): ");
 		eleccion= sc.nextInt();
 	}
 	return eleccion;
@@ -26,13 +40,12 @@ public class Menu {
 		    System.out.println();
 		    
 		    System.out.println("🎯 OBJETIVO:");
-		    System.out.println("Cada jugador debe adivinar el personaje secreto del oponente");
+		    System.out.println("¡Adivina quién es el personaje secreto antes de que se acaben tus opciones!");
 		    System.out.println("haciendo preguntas sobre sus características físicas.");
 		    System.out.println();
 		    
 		    System.out.println("🛠 MATERIALES NECESARIOS:");
 		    System.out.println("- Tablero con personajes.");
-		    System.out.println("- Fichas abatibles.");
 		    System.out.println("- Lista de características.");
 		    System.out.println();
 		    
@@ -62,23 +75,32 @@ public class Menu {
 	public static int preguntasRasgos() {
 		int eleccion=0;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Sobre que quieres preguntar: ");
-		System.out.println("1.Genero ");
-		System.out.println("2.Color del pelo ");
-		System.out.println("3.Ojos ");
-		System.out.println("4.Tipo de pelo ");
-		System.out.println("5. Accesorios ");
-		System.out.println("6.Adivinar personaje ");
-		eleccion= sc.nextInt();
-		while (eleccion < 1 || eleccion > 6){
-			System.out.println("Respuesta incorrecta introduce un numero del 1 al 5");
-			System.out.println("Sobre que quieres preguntar: ");
-			System.out.println("1.Genero ");
-			System.out.println("2.Color del pelo ");
-			System.out.println("3.Ojos ");
-			System.out.println("4.Tipo de pelo ");
-			System.out.println("5. Accesorios ");
-			System.out.println("6. Adivinar personaje ");
+		System.out.println("╔════════════════════════════════════╗");
+        System.out.println("║      ❓ ELIGE TU PREGUNTA ❓       ║");
+        System.out.println("╠════════════════════════════════════╣");
+        System.out.println("║  1️ Género                          ║");
+        System.out.println("║  2️ Color del pelo                  ║");
+        System.out.println("║  3️ Ojos                            ║");
+        System.out.println("║  4️ Tipo de pelo                    ║");
+        System.out.println("║  5️ Accesorios                      ║");
+        System.out.println("║  6️ Adivinar personaje              ║");
+        System.out.println("╚════════════════════════════════════╝");
+        System.out.print("👉 Selecciona una categoría (1-6): ");
+        eleccion = sc.nextInt();
+
+        while (eleccion < 1 || eleccion > 6) {
+            System.out.println("⚠️ Respuesta incorrecta, introduce un número del 1 al 6");
+            System.out.println("╔════════════════════════════════════╗");
+            System.out.println("║      ❓ ELIGE TU PREGUNTA ❓       ║");
+            System.out.println("╠════════════════════════════════════╣");
+            System.out.println("║  1️ Género                          ║");
+            System.out.println("║  2️ Color del pelo                  ║");
+            System.out.println("║  3️ Ojos                            ║");
+            System.out.println("║  4️ Tipo de pelo                    ║");
+            System.out.println("║  5️ Accesorios                      ║");
+            System.out.println("║  6️ Adivinar personaje              ║");
+            System.out.println("╚════════════════════════════════════╝");
+            System.out.print("👉 Selecciona una categoría (1-6): ");
 			eleccion= sc.nextInt();
 			
 		}
